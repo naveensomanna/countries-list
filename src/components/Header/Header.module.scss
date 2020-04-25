@@ -1,0 +1,23 @@
+@import "../../colors";
+
+@mixin flexible($direction, $justify, $align) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+.headerWrapper {
+  background-color: $white;
+  height: 50px;
+  .container {
+    width: 90%;
+    margin: auto;
+    height: 100%;
+    @include flexible(row, space-between, center);
+    & span:first-child {
+      font-size: 18px;
+      font-weight: 800;
+    }
+  }
+}
