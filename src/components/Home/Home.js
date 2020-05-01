@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import styles from "./Home.module.scss";
 import Search from "../Search/Search";
 const Home = () => {
@@ -30,7 +31,11 @@ const Home = () => {
       <Search filteredCountriesList={filteredCountriesList} />
       <div className={styles.listWrapper}>
         {countries.map((item, index) => (
-          <div className={styles.item} key={index}>
+          <Link
+            to={`/details/${item.name}`}
+            className={styles.item}
+            key={index}
+          >
             <img src={item.flag} alt="flag" />
             <div className={styles.details}>
               <p className={styles.name}>{item.name}</p>
@@ -43,7 +48,7 @@ const Home = () => {
               <span className={styles.subTitle}>Capital: </span>
               <span className={styles.subName}>{item.capital}</span>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </section>
