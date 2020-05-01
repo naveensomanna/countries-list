@@ -1,0 +1,44 @@
+@import "../../colors";
+
+.homeWrapper {
+  padding: 20px 0px;
+  width: 92%;
+  margin: auto;
+  .listWrapper {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    .item {
+      flex: 0 1 18%;
+      background-color: $white;
+      border-radius: 4px;
+      margin: 30px 15px;
+      min-height: 300px;
+      cursor: pointer;
+      img {
+        width: 100%;
+        max-height: 150px;
+        height: 100%;
+        object-fit: cover;
+        border-top-right-radius: 4px;
+        border-top-left-radius: 4px;
+      }
+      .details {
+        padding: 20px 20px;
+        .name {
+          font-weight: 800;
+          font-size: 16px;
+          margin: 0 0 10px 0;
+        }
+        .subTitle {
+          font-size: 14px;
+          font-weight: 600;
+        }
+        .subName {
+          font-size: 14px;
+          font-weight: 300;
+        }
+      }
+    }
+  }
+}
