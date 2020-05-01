@@ -1,0 +1,11 @@
+@import "../../colors";
+
+.search {
+  padding: 18px 0;
+  border: 0;
+  width: 30%;
+  border-radius: 4px;
+  &:focus {
+    outline: none;
+  }
+}

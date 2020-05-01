@@ -1,18 +1,33 @@
 import React, { useEffect, useState } from "react";
 import styles from "./Home.module.scss";
+import Search from "../Search/Search";
 const Home = () => {
   const [countries, setCountries] = useState([]);
-
+  const [filteredData, setFiltered] = useState([]);
   //on mount fetch all countries list
   useEffect(() => {
     fetch("https://restcountries.eu/rest/v2/all")
       .then(res => res.json())
       .then(result => {
         setCountries([...result]);
+        setFiltered([...result]);
       });
   }, []);
+
+  const filteredCountriesList = name => {
+    let filtered;
+    if (name.trim()) {
+      filtered = countries.filter(item =>
+        item.name.toLowerCase().includes(name.trim().toLowerCase())
+      );
+      setCountries([...filtered]);
+    } else {
+      setCountries([...filteredData]);
+    }
+  };
   return (
     <section className={styles.homeWrapper}>
+      <Search filteredCountriesList={filteredCountriesList} />
       <div className={styles.listWrapper}>
         {countries.map((item, index) => (
           <div className={styles.item} key={index}>

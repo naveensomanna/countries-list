@@ -4,8 +4,8 @@ const Header = () => {
   return (
     <header className={styles.headerWrapper}>
       <div className={styles.container}>
-        <span>Where in the world</span>
-        <span>dark mode</span>
+        <span>Where in the world?</span>
+        <span>Dark Mode</span>
       </div>
     </header>
   );
