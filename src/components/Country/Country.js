@@ -7,7 +7,7 @@ const Country = () => {
   const history = useHistory();
 
   useEffect(() => {
-    fetch(`https://restcountries.eu/rest/v2/name/${id}`)
+    fetch(`https://restcountries.eu/rest/v2/name/${id}?fullText=true`)
       .then(res => res.json())
       .then(result => {
         setdetails([...result]);
@@ -15,11 +15,30 @@ const Country = () => {
   }, []);
 
   console.log(details);
-  const { flag, name } = details[0] || [];
+  const {
+    flag,
+    name,
+    nativeName,
+    region,
+    population,
+    subregion,
+    capital,
+    topLevelDomain,
+    currencies,
+    borders = []
+  } = details[0] || [];
+  const detailsList = [
+    { title: "Native Name:", value: nativeName },
+    { title: "Population:", value: population },
+    { title: "Region: ", value: region },
+    { title: "Sub Region: ", value: subregion },
+    { title: "Capital: ", value: capital }
+  ];
   return (
     <div className={styles.container}>
       <button className={styles.backButton} onClick={() => history.goBack()}>
-        Back
+        <i class="fas fa-arrow-left"></i>
+        <span> Back</span>
       </button>
       <section className={styles.detailsWrapper}>
         <div className={styles.contentWrapper}>
@@ -27,7 +46,42 @@ const Country = () => {
             <img src={flag} alt="flag" />
           </div>
           <div className={styles.details}>
-            <p>{name}</p>
+            <section>
+              <p className={styles.name}>{name}</p>
+              <div className={styles.subDetails}>
+                <div className={styles.leftSection}>
+                  {detailsList.map((item, index) => (
+                    <div key={index}>
+                      <span className={styles.subTitle}>{item.title}</span>
+                      <span className={styles.value}> {item.value}</span>
+                      <br />
+                    </div>
+                  ))}
+                </div>
+                <div className={styles.rightSection}>
+                  <span className={styles.subTitle}>Top Level Domain: </span>
+                  <span className={styles.value}>
+                    {topLevelDomain && topLevelDomain[0]}
+                  </span>
+                  <br />
+                  <span className={styles.subTitle}>Currencies: </span>
+                  <span className={styles.value}>
+                    {currencies && currencies[0].code}
+                  </span>
+                  <br />
+                </div>
+              </div>
+            </section>
+            <div className={styles.borders}>
+              <span className={styles.subTitle}>Border Countries: </span>
+              <span className={styles.borderCountries}>
+                {borders.map((country, index) => (
+                  <span className={styles.borderCountry} key={index}>
+                    {country}
+                  </span>
+                ))}
+              </span>
+            </div>
           </div>
         </div>
       </section>
