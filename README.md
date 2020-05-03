@@ -4,6 +4,9 @@ Dark Mode:
 
 ![](src/images/darkModeList.png)
 
+Light Mode: 
+![](src/images/lightMode.png)
+
 
 ## Available Scripts
 
