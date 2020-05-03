@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "./Home.module.scss";
 import Search from "../Search/Search";
-const Home = () => {
+import DropDown from "../DropDown/DropDown";
+const Home = props => {
   const [countries, setCountries] = useState([]);
   const [filteredData, setFiltered] = useState([]);
   //on mount fetch all countries list
@@ -26,14 +27,28 @@ const Home = () => {
       setCountries([...filteredData]);
     }
   };
+
+  const handleSelectedRegion = lists => {
+    setCountries(lists ? [...lists] : [...filteredData]);
+  };
+
   return (
     <section className={styles.homeWrapper}>
-      <Search filteredCountriesList={filteredCountriesList} />
+      <div className={styles.filterWrapper}>
+        <Search
+          filteredCountriesList={filteredCountriesList}
+          selectedTheme={props.selectedTheme}
+        />
+        <DropDown
+          handleSelectedRegion={handleSelectedRegion}
+          selectedTheme={props.selectedTheme}
+        />
+      </div>
       <div className={styles.listWrapper}>
         {countries.map((item, index) => (
           <Link
             to={`/details/${item.name}`}
-            className={styles.item}
+            className={props.selectedTheme ? styles.darkThemeItem : styles.item}
             key={index}
           >
             <img src={item.flag} alt="flag" />

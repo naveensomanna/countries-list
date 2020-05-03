@@ -2,7 +2,7 @@
 
 .container {
   width: 90%;
-  padding: 40px 0;
+  padding: 100px 0 0 0;
   margin: auto;
   .backButton {
     width: 100px;
@@ -20,6 +20,10 @@
     & span {
       margin-left: 10px;
     }
+  }
+  & .darkbg {
+    background-color: $dark-blue;
+    color: $white;
   }
   .detailsWrapper {
     margin-top: 50px;
@@ -86,6 +90,19 @@
               text-transform: capitalize;
             }
           }
+        }
+      }
+      .darkbgElements {
+        .name {
+          color: $white;
+        }
+        .subTitle,
+        .value {
+          color: $white;
+        }
+        .borderCountry {
+          background-color: $dark-blue !important;
+          color: $white;
         }
       }
     }

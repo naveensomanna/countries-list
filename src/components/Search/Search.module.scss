@@ -1,11 +1,28 @@
 @import "../../colors";
-
-.search {
-  padding: 18px 0;
-  border: 0;
+.searchContainer {
+  position: relative;
   width: 30%;
-  border-radius: 4px;
-  &:focus {
-    outline: none;
+
+  .search {
+    padding: 18px 10px;
+    border: 0;
+    width: 100%;
+    border-radius: 4px;
+    background-color: $white;
+    &:focus {
+      outline: none;
+    }
+    input ::-webkit-input-placeholder {
+      padding-left: 30px !important;
+    }
+  }
+  .darkBg {
+    background-color: $dark-blue;
+    color: $white;
+  }
+  i {
+    position: absolute !important;
+    top: 5px;
+    left: 0;
   }
 }

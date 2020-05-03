@@ -6,12 +6,24 @@
   box-sizing: border-box;
 }
 
-body {
+body,
+html {
   font-family: "Nunito Sans", sans-serif;
   margin: 0;
   padding: 0;
-  background-color: $light-bg;
+  height: 100%;
 }
 a {
   text-decoration: none;
+}
+.dark-theme {
+  background-color: $dark-bg;
+  height: 100%;
+  min-height: 100vh;
+}
+
+.light-theme {
+  background-color: $light-bg;
+  height: 100%;
+  min-height: 100vh;
 }

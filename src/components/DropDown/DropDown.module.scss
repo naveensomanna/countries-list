@@ -1,0 +1,46 @@
+@import "../../colors";
+
+.select {
+  background-color: $white;
+  width: 180px;
+  height: 45px;
+  border-radius: 4px;
+  position: relative;
+  cursor: pointer;
+  .selectedValue {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    width: 80%;
+    margin: auto;
+    color: $dark-blue-color;
+    font-size: 14px;
+    font-weight: 500;
+  }
+  .lists {
+    position: absolute;
+    top: 50px;
+    width: 100%;
+    background-color: $white;
+    list-style-type: none;
+    z-index: 999;
+    border-radius: 4px;
+
+    & li {
+      padding: 5px 20px;
+      font-size: 14px;
+      font-weight: 300;
+    }
+  }
+}
+.darkBg {
+  background-color: $dark-blue;
+  .selectedValue {
+    color: $white;
+  }
+  .lists {
+    background-color: $dark-blue;
+    color: $white;
+  }
+}

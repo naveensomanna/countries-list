@@ -10,6 +10,12 @@
 .headerWrapper {
   background-color: $white;
   height: 70px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+
   .container {
     width: 90%;
     margin: auto;
@@ -19,5 +25,15 @@
       font-size: 18px;
       font-weight: 800;
     }
+    & span:nth-child(2) {
+      cursor: pointer;
+      i {
+        margin-right: 5px;
+      }
+    }
   }
+}
+.darkHeader {
+  background-color: $dark-blue;
+  color: #ffffff;
 }

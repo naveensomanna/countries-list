@@ -9,13 +9,19 @@ const Search = props => {
   useEffect(() => {
     props.filteredCountriesList(searchText);
   }, [searchText]);
+
   return (
-    <input
-      type="text"
-      placeholder="Search for a country"
-      className={styles.search}
-      onChange={handleChange}
-    />
+    <div className={styles.searchContainer}>
+      <input
+        type="text"
+        placeholder="Search for a country"
+        className={
+          styles.search + ` ${props.selectedTheme ? styles.darkBg : ""}`
+        }
+        onChange={handleChange}
+      />
+      <i class="fas fa-search"></i>
+    </div>
   );
 };
 

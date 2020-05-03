@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import styles from "./Country.module.scss";
-const Country = () => {
+const Country = props => {
   const [details, setdetails] = useState([]);
   const { id } = useParams();
   const history = useHistory();
@@ -14,7 +14,6 @@ const Country = () => {
       });
   }, []);
 
-  console.log(details);
   const {
     flag,
     name,
@@ -36,7 +35,12 @@ const Country = () => {
   ];
   return (
     <div className={styles.container}>
-      <button className={styles.backButton} onClick={() => history.goBack()}>
+      <button
+        className={
+          styles.backButton + ` ${props.selectedTheme ? styles.darkbg : ""}`
+        }
+        onClick={() => history.goBack()}
+      >
         <i class="fas fa-arrow-left"></i>
         <span> Back</span>
       </button>
@@ -45,7 +49,12 @@ const Country = () => {
           <div className={styles.image}>
             <img src={flag} alt="flag" />
           </div>
-          <div className={styles.details}>
+          <div
+            className={
+              styles.details +
+              ` ${props.selectedTheme ? styles.darkbgElements : ""}`
+            }
+          >
             <section>
               <p className={styles.name}>{name}</p>
               <div className={styles.subDetails}>

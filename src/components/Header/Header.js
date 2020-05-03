@@ -1,11 +1,19 @@
 import React from "react";
 import styles from "./Header.module.scss";
-const Header = () => {
+const Header = props => {
   return (
-    <header className={styles.headerWrapper}>
+    <header
+      className={
+        styles.headerWrapper +
+        ` ${props.selectedTheme ? styles.darkHeader : ""}`
+      }
+    >
       <div className={styles.container}>
         <span>Where in the world?</span>
-        <span>Dark Mode</span>
+        <span onClick={props.handleToggleTheme}>
+          <i class="far fa-moon"></i>
+          Dark Mode
+        </span>
       </div>
     </header>
   );
