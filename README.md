@@ -4,6 +4,9 @@ Dark Mode:
 
 ![](src/images/darkModeList.png)
 
+![](src/images/selectedCountryDark.png)
+
+
 Light Mode: 
 ![](src/images/lightMode.png)
 
