@@ -4,16 +4,13 @@
   width: 30%;
 
   .search {
-    padding: 18px 10px;
+    padding: 18px 50px;
     border: 0;
     width: 100%;
     border-radius: 4px;
     background-color: $white;
     &:focus {
       outline: none;
-    }
-    input ::-webkit-input-placeholder {
-      padding-left: 30px !important;
     }
   }
   .darkBg {
@@ -22,7 +19,7 @@
   }
   i {
     position: absolute !important;
-    top: 5px;
-    left: 0;
+    top: 18px;
+    left: 10px;
   }
 }
