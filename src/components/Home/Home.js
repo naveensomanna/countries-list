@@ -6,6 +6,7 @@ import DropDown from "../DropDown/DropDown";
 const Home = props => {
   const [countries, setCountries] = useState([]);
   const [filteredData, setFiltered] = useState([]);
+  const [regionsList, setRegions] = useState([]);
   //on mount fetch all countries list
   useEffect(() => {
     fetch("https://restcountries.eu/rest/v2/all")
@@ -24,12 +25,13 @@ const Home = props => {
       );
       setCountries([...filtered]);
     } else {
-      setCountries([...filteredData]);
+      setCountries(regionsList ? [...regionsList] : [...filteredData]);
     }
   };
 
   const handleSelectedRegion = lists => {
     setCountries(lists ? [...lists] : [...filteredData]);
+    setRegions([...lists]);
   };
 
   return (

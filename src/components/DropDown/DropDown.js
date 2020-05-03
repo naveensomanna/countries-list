@@ -15,9 +15,9 @@ const DropDown = props => {
     fetch(`https://restcountries.eu/rest/v2/region/${region}`)
       .then(res => res.json())
       .then(result => {
-        props.handleSelectedRegion(result);
+        result.length > 0 && props.handleSelectedRegion(result);
       })
-      .catch(err => alert(err.message));
+      .catch(err => console.log(err));
   };
 
   return (
