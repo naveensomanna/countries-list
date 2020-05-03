@@ -37,3 +37,15 @@
   background-color: $dark-blue;
   color: #ffffff;
 }
+
+@media only screen and(max-width:600px) {
+  .container {
+    & span:first-child {
+      font-size: 14px !important;
+      font-weight: 800 !important;
+    }
+    & span:nth-child(2) {
+      font-size: 14px !important;
+    }
+  }
+}
