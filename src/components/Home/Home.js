@@ -33,7 +33,7 @@ const Home = props => {
     setCountries(lists ? [...lists] : [...filteredData]);
     setRegions([...lists]);
   };
-
+  console.log(countries);
   return (
     <section className={styles.homeWrapper}>
       <div className={styles.filterWrapper}>
@@ -49,7 +49,7 @@ const Home = props => {
       <div className={styles.listWrapper}>
         {countries.map((item, index) => (
           <Link
-            to={`/details/${item.name}`}
+            to={`/details/${item.alpha3Code}`}
             className={props.selectedTheme ? styles.darkThemeItem : styles.item}
             key={index}
           >

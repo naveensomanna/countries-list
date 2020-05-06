@@ -7,10 +7,10 @@ const Country = props => {
   const history = useHistory();
 
   useEffect(() => {
-    fetch(`https://restcountries.eu/rest/v2/name/${id}?fullText=true`)
+    fetch(`https://restcountries.eu/rest/v2/alpha/${id}`)
       .then(res => res.json())
       .then(result => {
-        setdetails([...result]);
+        setdetails([{ ...result }]);
       });
   }, []);
 
